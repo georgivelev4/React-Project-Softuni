@@ -22,8 +22,8 @@ An application that stores information about available courses and allows regist
 - Admins can delete all available courses
 - Admins can edit all available courses
 
-3. Register user area 
-- User can view all available courses
+3. Registered users area 
+- Users can view all available courses
 - Users can view the details of any available course
 - Users can take any available course
 - Users can view their own taken courses
