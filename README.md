@@ -13,9 +13,9 @@ An application that stores information about available courses and allows regist
 - The details of the course become visible when one of the following buttons is clicked - >  EDIT / DELETE / TAKE ! 
 
 1. Main area
-- Guest are only allowed to register / login
+- Guests are only allowed to register / login
 
-2. Admin area
+2. Admins area
 - Admins can view all available courses 
 - Admins can view the details of any available course
 - Admins can create courses
