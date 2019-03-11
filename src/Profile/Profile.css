@@ -1,0 +1,18 @@
+.Profile .card {
+    box-shadow: 0 10px 40px 0 rgba(1, 1, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    transform: translate(-5%, +50%);
+}
+.Profile {
+    margin: 0;
+    padding: 0;
+}
+.Profile .title {
+    color: grey;
+    font-size: 18px;
+}
+.Profile h1{
+    color: #8cb2ff;
+}
