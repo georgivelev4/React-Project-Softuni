@@ -30,7 +30,7 @@ class Home extends Component {
                             ?
                             <div>
                                 <div id="container">
-                                    {this.props.courses.map((course) => (
+                                    {this.state.courses.map((course) => (
                                         <div key={course._id} className="course"><h2>{course.title}</h2><img alt="course"
                                                                                                              className="home-jpg"
                                                                                                              src={course.imageUrl}/>
