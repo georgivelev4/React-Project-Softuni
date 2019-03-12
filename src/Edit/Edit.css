@@ -1,0 +1,49 @@
+.Edit form{
+    display: grid;
+    width: 25%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+}
+.Edit h1{
+    color: white;
+    font-size: 45px
+}
+.Edit input {
+    font-size: 25px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: seagreen;
+}
+
+.Edit label{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+}
+.Edit img{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0
+}
+.Edit .edit-course-btn{
+    text-decoration: none;
+    padding: 16px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+}
+
+.Edit a.edit-course-btn:hover {
+
+    background-color: green;
+    color: white;
+}

@@ -1,0 +1,21 @@
+.MyCourses {
+    text-align: center;
+
+}
+
+.MyCourses .container {
+    padding: 50px;
+    display: inline-block;
+    margin: 20px
+}
+
+.MyCourses img {
+    margin: 0 auto;
+    width: 350px;
+    height: 290px;
+}
+
+.MyCourses textarea {
+    text-align: center;
+    font-size: 20px;
+}
