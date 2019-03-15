@@ -33,7 +33,7 @@ class TakeCourse extends Component {
                           fetch('http://localhost:9999/feed/takecourse', {
                               method: 'POST',
                               headers: {'Content-Type': 'application/json'},
-                              body: JSON.stringify({id: this.state.course._id, username: username})
+                              body: JSON.stringify({id: this.state.course._id, username: username, token: this.props.token})
                           });
                           this.props.redirect();
                           toast.success('Course taken successfully!', {
