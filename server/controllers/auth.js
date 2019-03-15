@@ -34,8 +34,15 @@ module.exports = {
                 username,
                 salt
             }).then((user) => {
+                const token = jwt.sign({
+                        username: user.username,
+                        userId: user._id.toString()
+                    }
+                    , 'somesupersecret'
+                    , {expiresIn: '1h'});
+
                 res.status(201)
-                    .json({message: 'User created!', userId: user._id, username: user.username, isAdmin: user.roles.indexOf('Admin')});
+                    .json({message: 'User created!',token, userId: user._id, username: user.username, isAdmin: user.roles.indexOf('Admin')});
             })
                 .catch((error) => {
                     if (!error.statusCode) {
