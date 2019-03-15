@@ -26,7 +26,8 @@ class App extends Component {
             redirect: false,
             id: null,
             course: null,
-            myCourses: []
+            myCourses: [],
+            token: null
         };
         this.logout = this.logout.bind(this);
     }
@@ -72,7 +73,8 @@ class App extends Component {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        username: localStorage.getItem('username')
+                        username: localStorage.getItem('username'),
+                        token: this.state.token
                     })
                 })
                 .then(res => res.json())
@@ -106,7 +108,6 @@ class App extends Component {
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
-
         });
     }
 
@@ -115,7 +116,7 @@ class App extends Component {
         fetch('http://localhost:9999/feed/deletecourse', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({id: this.state.course._id})
+            body: JSON.stringify({id: this.state.course._id, token: this.state.token})
         }).then(res => res.json())
             .then((body) => {
                 fetch('http://localhost:9999/feed/courses')
@@ -135,7 +136,7 @@ class App extends Component {
         fetch('http://localhost:9999/feed/editcourse', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({id: id, data: data})
+            body: JSON.stringify({id: id, data: data, token: this.state.token})
         })
             .then(res => res.json())
             .then((body) => {
@@ -163,6 +164,7 @@ class App extends Component {
     handleSubmit(event, data, isSignUp, isCreate) {
         event.preventDefault();
         if (isCreate) {
+            data['token'] = this.state.token;
             fetch('http://localhost:9999/feed/course/create', {
                 method: 'POST',
                 headers: {
@@ -208,7 +210,8 @@ class App extends Component {
                         localStorage.setItem('isAdmin', body.isAdmin);
                         this.setState({
                             username: body.username,
-                            isAdmin: body.isAdmin === 0
+                            isAdmin: body.isAdmin === 0,
+                            token: body.token
                         });
                         toast.success(`Welcome, Mr/Mrs ${this.state.username}!`, {
                             position: "bottom-left",
@@ -255,12 +258,15 @@ class App extends Component {
                     <Redirect to="/login"/>}
                 {this.state.course !== null ? <Route exact path="/takecourse"
                                                      render={() => <TakeCourse courseObj={this.state.course}
+
                                                                                redirect={this.setRedirect.bind(this)}/>}/> :
                     <Redirect to="/"/>
                 }
                 {this.state.username ? <Route exact path="/mycourses"
                                               render={() => <MyCourses username={this.state.username}
-                                                                       myCourses={this.state.myCourses}/>}/> :
+
+                                                                       myCourses={this.state.myCourses}
+                                              />}/> :
                     <Redirect to="/login"/>}
                 {this.state.username ? <Route exact path="/profile" render={() => <Profile isAdmin={this.state.isAdmin}
                                                                                            username={this.state.username}
