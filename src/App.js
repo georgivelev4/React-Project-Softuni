@@ -258,13 +258,13 @@ class App extends Component {
                     <Redirect to="/login"/>}
                 {this.state.course !== null ? <Route exact path="/takecourse"
                                                      render={() => <TakeCourse courseObj={this.state.course}
-
+                                                                               token={this.state.token}
                                                                                redirect={this.setRedirect.bind(this)}/>}/> :
                     <Redirect to="/"/>
                 }
                 {this.state.username ? <Route exact path="/mycourses"
                                               render={() => <MyCourses username={this.state.username}
-
+                                                                       token={this.state.token}
                                                                        myCourses={this.state.myCourses}
                                               />}/> :
                     <Redirect to="/login"/>}
