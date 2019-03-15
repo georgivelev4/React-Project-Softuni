@@ -17,7 +17,8 @@ class MyCourses extends Component {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: localStorage.getItem('username')
+                    username: localStorage.getItem('username'),
+                    token: this.props.token
                 })
             })
             .then(res => res.json())
